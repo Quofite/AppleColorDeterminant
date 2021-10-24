@@ -8,29 +8,33 @@ Program is very simple and can be useful for developer who only starting their a
 In future this app can be rewrote with graphics interface but for now we had enough NNs
 """
 
-
+# --------------------------------------------------- IMPORTS -----------------------------------
 from PIL import Image  # needs to open and use images
 from sklearn.cluster import KMeans  # needs to use AI
 import numpy as np  # needs for math
 import math  # needs for math to
 
-
+# --------------------------------------------------- CUSTOM LISTS AND METHODS ------------------
 # getting distance to center of color
 def delta(a, b):
     result = (a[0] - b[0]) ** 2 + (a[1] - b[1]) ** 2 + (a[2] - b[2]) ** 2
     return math.sqrt(result)
 
 
-# basic input of file name
-img = input("Enter the name of image WITH extension: ")
-image = Image.open("images/" + img)
-
 # list of apples colors and their average RGB values + fully white and black backs
+# numbers got by running the program without last loop's block - instead of this there were print(i)
 colors = {"red": (175, 70, 70),
           "yellow": (230, 200, 50),
           "green": (100, 130, 50),
+          # backgrouns colors are obvious
           "white background": (255, 255, 255),
           "black background": (0, 0, 0)}
+
+
+# --------------------------------------------------- THAN ALL COMMANDS ARE EXECUTING IN ORDER --
+# basic input of file name and adding directory
+imgName = input("Enter the name of image WITH extension: ")
+image = Image.open("images/" + imgName)
 
 # getting every single pixel of image
 pixels = []
@@ -49,7 +53,7 @@ kmeans.fit(imageColors)  # splitting pixels to clusters
 for i in kmeans.cluster_centers_:
     outputColor = "green"  # some basic color
 
-    # running through all possible colors from list in 18th string
+    # running through all possible colors from list
     for color in colors:
         # if center of color from list less than color that we have wrote previously...
         if delta(colors[color], i) < delta(colors[outputColor], i):
