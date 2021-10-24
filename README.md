@@ -1,4 +1,4 @@
-# Apple Color Guesser
+# Apple Color Determinant
 Application that is guessing color of apple from image
 
 1) Install Pillow, sklearn and numpy, using command for your package manager.
