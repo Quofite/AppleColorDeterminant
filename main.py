@@ -3,7 +3,7 @@ This is very simple neural network made by
 Gleb Nikitin (vk.com/gleb.nikitin1) and Aleksey Davydenok (vk.com/doogls) and some internet searching :)
 
 This neural network is detecting the color of apple in picture from /images/ with white or black background.
-Program is very simple and can be useful for developer who only starting their adventure to neural networks and AIs.
+Program is very simple and can be useful for developers who only starting their adventure to neural networks and AIs.
 
 In future this app can be rewrote with graphics interface but for now we had enough NNs
 """
@@ -12,10 +12,10 @@ In future this app can be rewrote with graphics interface but for now we had eno
 from PIL import Image  # needs to open and use images
 from sklearn.cluster import KMeans  # needs to use AI
 import numpy as np  # needs for math
-import math  # needs for math to
+import math  # needs for math too
 
 # --------------------------------------------------- CUSTOM LISTS AND METHODS ------------------
-# getting distance to center of color
+# getting distance to the center of color
 def delta(a, b):
     result = (a[0] - b[0]) ** 2 + (a[1] - b[1]) ** 2 + (a[2] - b[2]) ** 2
     return math.sqrt(result)
